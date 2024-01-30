@@ -1,0 +1,23 @@
+import java.util.Arrays;
+class StandardDeviationExample {
+    public static void main(String[] args) {
+        double[] data = { 66,79,84,53,28,17,91,35};
+        double mean = calculateMean(data);
+        double sumSquaredDifferences = 0.0;
+        for (double value : data) {
+            double difference = value - mean;
+            sumSquaredDifferences += difference * difference;
+        }
+        double standardDeviation = Math.sqrt(sumSquaredDifferences / data.length);
+        System.out.println("Data: " + Arrays.toString(data));
+        System.out.println("Mean: " + mean);
+        System.out.println("Standard Deviation: " + standardDeviation);
+    }
+    private static double calculateMean(double[] data) {
+        double sum = 0.0;
+        for (double value : data) {
+            sum += value;
+        }
+        return sum / data.length;
+    }
+}
